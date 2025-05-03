@@ -3,50 +3,56 @@ import { onMounted, ref } from 'vue';
 import ApexCharts from 'apexcharts';
 
 const chartEl = ref<HTMLElement | null>(null);
-    
-var options = {
-      series: [14, 23, 21, 17, 15, 10, 12, 17, 21],
-      chart: {
-      type: 'polarArea',
-    },
-    stroke: {
-      colors: ['#fff']
-    },
-    fill: {
-      opacity: 0.8
-    },
-    responsive: [{
-      breakpoint: 480,
-      options: {
-        chart: {
-          width: 200
-        },
-        legend: {
-          position: 'bottom'
-        }
-      }
-    }]
-};
-
+const props = defineProps<{ values: number[], fields: string[] }>();
 
 onMounted( () => {
+
+    const options = {
+        series: props.values,
+        labels: props.fields,
+
+        colors: [
+            '#4CAF50', '#FFA726', '#E91E63', '#9C27B0',
+            '#00BCD4', '#795548', '#3F51B5', '#FFC107'
+        ], 
+    
+        chart: { type: 'polarArea', width: 600 },
+        stroke: { colors: ['#fff'] },
+        fill: { opacity: 0.8 },
+        yaxis: { show: false },
+        legend: { position: 'bottom' },
+    
+        plotOptions: {
+            polarArea: {
+                rings: { strokeWidth: 1 },
+                spokes: { strokeWidth: 1 },
+            }
+        },
+
+        responsive: [{
+            breakpoint: 480,
+
+            options: {
+                chart: { width: 800 },
+                legend: { position: 'bottom' }
+            }
+        }]
+    };
+
     if (chartEl.value) {
         const chart = new ApexCharts(chartEl.value, options);
         chart.render();
     }
 });
          
-defineProps<{ name: string }>()
 </script>
 
 <template>
-    <h1>Wheel of Life</h1>
-    <h3>Hi, {{ name }}!</h3>
     <div ref="chartEl" class="chart"></div>
 </template>
 
 <style scoped>
 .chart {
-  min-height: 300px; 
+  min-height: 400px; 
 }
 </style>

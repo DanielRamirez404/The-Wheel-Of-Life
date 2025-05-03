@@ -4,5 +4,5 @@
 </script>
 
 <template>
-    <WheelOfLife name="Gilberto" />
+    <WheelOfLife :values="[10, 8, 2, 3, 5, 10, 9, 7]" :fields="['Health', 'Relationships', 'Love', 'Personal Growth', 'Leisure', 'Physical Environment', 'Career', 'Finances']" />
 </template>
