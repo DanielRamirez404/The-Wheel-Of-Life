@@ -4,5 +4,5 @@
 </script>
 
 <template>
-  <WheelOfLife name="Gilberto" />
+    <WheelOfLife name="Gilberto" />
 </template>
