@@ -1,22 +1,28 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import ApexCharts from 'apexcharts';
+import { onMounted, ref } from 'vue'
+import ApexCharts from 'apexcharts'
+import WheelOfLife from '../classes/WheelOfLife.ts'
+import LifeField from '../classes/LifeField.ts'
 
 const chartEl = ref<HTMLElement | null>(null);
-const props = defineProps<{ values: number[], fields: string[] }>();
+const props = defineProps<{ wheel: WheelOfLife }>();
+
+const dictionary: FieldDictionary = props.wheel.getFields();
+const fields: LifeField[] = Object.values(dictionary); 
+const names: string[] = fields.map((field) => field.getName() );
+const values: number[] = fields.map((field) => field.getScore().getValue() );
 
 onMounted( () => {
-
     const options = {
-        series: props.values,
-        labels: props.fields,
+        series: values,
+        labels: names,
 
         colors: [
             '#4CAF50', '#FFA726', '#E91E63', '#9C27B0',
             '#00BCD4', '#795548', '#3F51B5', '#FFC107'
         ], 
     
-        chart: { type: 'polarArea', width: 600 },
+        chart: { type: 'polarArea', width: 500 },
         stroke: { colors: ['#fff'] },
         fill: { opacity: 0.8 },
         yaxis: { show: false },

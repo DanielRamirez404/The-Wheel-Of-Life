@@ -25,6 +25,6 @@ export default class WheelOfLife {
     }
 
     public getFields(): FieldDictionary {
-        return this.FieldDictionary; 
+        return this.fields; 
     }
 }
