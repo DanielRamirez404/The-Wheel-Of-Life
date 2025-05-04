@@ -14,7 +14,7 @@ export default class LifeField {
         this.score = new Score(value);
     }
 
-    public getScore(): Score || null {
+    public getScore(): Score | null {
         return this.score;
     }
 

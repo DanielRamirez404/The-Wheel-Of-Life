@@ -1,10 +1,8 @@
 import LifeField from './LifeField';
 
-export default class WheelOfLife {
-    private type FieldDictionary = {
-        [key: string]: LifeField;
-    };
+type FieldDictionary = { [key: string]: LifeField };
 
+export default class WheelOfLife {
     private fields: FieldDictionary = {};
 
     private addField(name: string, description: string): never {
@@ -12,18 +10,18 @@ export default class WheelOfLife {
     }
 
     constructor() {
-        addField("Salud", "Bienestar físico, mental y emocional");
-        addField("Relaciones", "Calidad de interacciones sociales, familiares y de amistad");
-        addField("Amor", "Calidad de interacciones amorosas o románticas");
-        addField("Crecimiento Personal", "Evolución como persona en los aspectos mental, emocional, espiritual y creativo");
-        addField("Ocio", "Calidad de actividades que te traen diversión y relajación");
-        addField("Entono Físico", "Estado de tu espacios de trabajo y vida cotidiana, y cómo afectan tu bienestar");
-        addField("Carrera", "Satisfacción con tu vida estudiantil o profesional");
-        addField("Finanzas", "Relación con tus ingresos, seguridad financiera y administración de recursos económicos");
+        this.addField("Salud", "Bienestar físico, mental y emocional");
+        this.addField("Relaciones", "Calidad de interacciones sociales, familiares y de amistad");
+        this.addField("Amor", "Calidad de interacciones amorosas o románticas");
+        this.addField("Crecimiento Personal", "Evolución como persona en los aspectos mental, emocional, espiritual y creativo");
+        this.addField("Ocio", "Calidad de actividades que te traen diversión y relajación");
+        this.addField("Entorno Físico", "Estado de tu espacios de trabajo y vida cotidiana, y cómo afectan tu bienestar");
+        this.addField("Carrera", "Satisfacción con tu vida estudiantil o profesional");
+        this.addField("Finanzas", "Relación con tus ingresos, seguridad financiera y administración de recursos económicos");
     }
 
-    public getScore(): Score || null {
-        return this.score;
+    public setField(name: string, score: number): never {
+        this.fields[name].setScore(score);
     }
 
     public getFields(): FieldDictionary {
