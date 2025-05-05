@@ -3,11 +3,11 @@ import { onMounted, ref } from 'vue'
 import ApexCharts from 'apexcharts'
 import WheelOfLife from '../classes/WheelOfLife.ts'
 import LifeField from '../classes/LifeField.ts'
+import wheel from '../data/wheel.ts'
 
 const chartEl = ref<HTMLElement | null>(null);
-const props = defineProps<{ wheel: WheelOfLife }>();
 
-const dictionary: FieldDictionary = props.wheel.getFields();
+const dictionary: FieldDictionary = wheel.getFields();
 const fields: LifeField[] = Object.values(dictionary); 
 const names: string[] = fields.map((field) => field.getName() );
 const values: number[] = fields.map((field) => field.getScore().getValue() );
