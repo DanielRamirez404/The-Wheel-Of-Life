@@ -33,7 +33,7 @@ onMounted( () => {
         chart: { type: 'polarArea', width: 500 },
         stroke: { colors: ['#fff'] },
         fill: { opacity: 0.8 },
-        yaxis: { show: false },
+        yaxis: { show: false, max: 10 },
         legend: { position: 'bottom' },
     
         plotOptions: {
