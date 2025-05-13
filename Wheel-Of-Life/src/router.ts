@@ -3,9 +3,9 @@ import LifeCanvas from './components/LifeCanvas.vue'
 import FieldsSelector from './components/FieldsSelector.vue'
 
 const routes = [
-    { path: '/:catchAll(.*)', redirect: '/seleccion' },
+    { path: '/:catchAll(.*)', redirect: '/' },
     { path: '/rueda-de-vida', name: 'Canvas', component: LifeCanvas },
-    { path: '/seleccion', name: 'Selección', component: FieldsSelector },
+    { path: '/', name: 'Selección', component: FieldsSelector },
 ];
 
 const router = createRouter({

@@ -23,8 +23,10 @@ function onClick(value: number): never {
     currentFieldName.value = fieldNames[currentFieldIndex.value];
     currentDescription.value = fieldDescriptions[currentFieldIndex.value];
     
-    if (currentFieldIndex.value >= fields.length)
+    if (currentFieldIndex.value >= fields.length) {
+        wheel.setAsFilled()
         router.push('/rueda-de-vida');
+    }
 }
 
 </script>
