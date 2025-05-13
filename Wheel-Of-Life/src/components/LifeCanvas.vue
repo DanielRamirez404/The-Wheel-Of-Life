@@ -36,10 +36,10 @@ onMounted( () => {
         },
 
         responsive: [{
-            breakpoint: 480,
+            breakpoint: 600,
 
             options: {
-                chart: { width: 800 },
+                chart: { width: 460 },
                 legend: { position: 'bottom' }
             }
         }]
@@ -54,11 +54,20 @@ onMounted( () => {
 </script>
 
 <template>
-    <div ref="chartEl" class="chart"></div>
+    <div class="life-container">
+        <h1>¡Tu Rueda de la Vida!</h1> 
+        <div ref="chartEl" class="chart"></div>
+    </div>
 </template>
 
 <style scoped>
 .chart {
-  min-height: 400px; 
+    min-height: 400px; 
+}
+
+.life-container {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
 }
 </style>

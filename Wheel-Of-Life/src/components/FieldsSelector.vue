@@ -36,5 +36,4 @@ function onClick(value: number): never {
 </template>
 
 <style scoped>
-
 </style>

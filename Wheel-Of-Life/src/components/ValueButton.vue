@@ -30,10 +30,12 @@ button {
 }
 
 button:hover {
+    outline: none;
     background: #f0f0f0;
 }
 
 button:active {
+    outline: none;
     background: #e0e0e0;
 }
 </style>
