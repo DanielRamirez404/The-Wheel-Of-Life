@@ -1,6 +1,6 @@
 export default class Score {
-    private value: number;
-    private description: string;
+    private value: number = 0;
+    private description: string = "";
 
     constructor(value: number) {
         if (value < 0 || value > 10)

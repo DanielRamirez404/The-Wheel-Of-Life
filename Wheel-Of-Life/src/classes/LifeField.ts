@@ -2,15 +2,15 @@ import Score from './Score';
 
 export default class LifeField {
     private score: Score | null = null;
-    private name: string;
-    private description: string; 
+    private name: string = "";
+    private description: string = ""; 
 
     constructor(name: string, description: string) {
         this.name = name;
         this.description = description;
     }
 
-    public setScore(value: int): never {
+    public setScore(value: number): void {
         this.score = new Score(value);
     }
 

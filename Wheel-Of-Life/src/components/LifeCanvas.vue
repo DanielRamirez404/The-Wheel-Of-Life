@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router';
+import type { FieldDictionary } from '../classes/WheelOfLife'
 import ApexCharts from 'apexcharts'
-import WheelOfLife from '../classes/WheelOfLife.ts'
-import LifeField from '../classes/LifeField.ts'
-import wheel from '../data/wheel.ts'
+import LifeField from '../classes/LifeField'
+import wheel from '../data/wheel'
 
 const chartEl = ref<HTMLElement | null>(null);
 const router = useRouter();

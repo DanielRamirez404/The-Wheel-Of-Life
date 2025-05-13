@@ -1,12 +1,12 @@
 import LifeField from './LifeField';
 
-type FieldDictionary = { [key: string]: LifeField };
+export type FieldDictionary = { [key: string]: LifeField };
 
 export default class WheelOfLife {
     private fields: FieldDictionary = {};
     private isFilled: boolean = false;
 
-    private addField(name: string, description: string): never {
+    private addField(name: string, description: string): void {
         this.fields[name] = new LifeField(name, description); 
     }
 
@@ -25,7 +25,7 @@ export default class WheelOfLife {
         this.reset(); 
     }
 
-    public setField(name: string, score: number): never {
+    public setField(name: string, score: number): void {
         this.fields[name].setScore(score);
     }
 
@@ -37,11 +37,11 @@ export default class WheelOfLife {
         return !this.isFilled
     }
 
-    public setAsFilled(): never {
+    public setAsFilled(): void {
         this.isFilled = true;
     }
 
-    public reset(): never {
+    public reset(): void {
         this.isFilled = false;
         this.fields = {};
         this.addDefaultFields();

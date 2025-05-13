@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ValueButton from './ValueButton.vue'
 
-const props = defineProps<{ onClick: (number) => void }>();
+const props = defineProps<{ onClick: (arg0: number) => void }>();
 </script>
 
 <template>

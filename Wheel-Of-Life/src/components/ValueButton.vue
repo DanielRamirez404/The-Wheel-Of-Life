@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{ value: int, onClick: (number) => void }>();
+const props = defineProps<{ value: number, onClick: (arg0: number) => void }>();
 </script>
 
 <template>
