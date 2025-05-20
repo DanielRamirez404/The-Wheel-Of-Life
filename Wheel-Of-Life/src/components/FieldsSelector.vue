@@ -4,9 +4,11 @@ import { useRouter } from 'vue-router';
 import type { FieldDictionary } from '../classes/WheelOfLife'
 import ValueSelector from './ValueSelector.vue'
 import LifeField from '../classes/LifeField'
+import LifeCanvas from './LifeCanvas.vue'
 import wheel from '../data/wheel'
 
 const router = useRouter();
+let showWheel = ref<boolean>(false);
 
 const dictionary: FieldDictionary = wheel.getFields();
 const fields: LifeField[] = Object.values(dictionary); 
@@ -26,16 +28,20 @@ function onClick(value: number): void {
     
     if (currentFieldIndex.value >= fields.length) {
         wheel.setAsFilled()
-        router.push('/Wheel-Of-Life/wheel');
+        showWheel.value = true;
+        //router.push('/Wheel-Of-Life/wheel');
     }
 }
 
 </script>
 
 <template>
-    <h1>{{ currentFieldName }}</h1>
-    <h2>{{ currentDescription }}</h2>
-    <ValueSelector :onClick="onClick" /> 
+    <div v-if="!showWheel" >
+        <h1>{{ currentFieldName }}</h1>
+        <h2>{{ currentDescription }}</h2>
+        <ValueSelector :onClick="onClick" /> 
+    </div>
+    <LifeCanvas v-else />
 </template>
 
 <style scoped>
