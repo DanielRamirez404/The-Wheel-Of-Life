@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router';
+//import { useRouter } from 'vue-router';
 import type { FieldDictionary } from '../classes/WheelOfLife'
 import ValueSelector from './ValueSelector.vue'
 import LifeField from '../classes/LifeField'
 import LifeCanvas from './LifeCanvas.vue'
 import wheel from '../data/wheel'
 
-const router = useRouter();
+//const router = useRouter();
 let showWheel = ref<boolean>(false);
 
 const dictionary: FieldDictionary = wheel.getFields();
