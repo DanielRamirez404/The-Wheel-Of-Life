@@ -26,7 +26,7 @@ function onClick(value: number): void {
     
     if (currentFieldIndex.value >= fields.length) {
         wheel.setAsFilled()
-        router.push('/rueda-de-vida');
+        router.push('/Wheel-Of-Life/wheel');
     }
 }
 
