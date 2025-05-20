@@ -18,7 +18,7 @@ const values: number[] = fields.map((field) =>  field.getScore()?.getValue() ?? 
 onMounted( () => {
     if (wheel.isEmpty()) {
         wheel.reset();
-        router.push('/Wheel-Of-Life');
+        router.push('/Wheel-Of-Life/');
     }
 
     const options = {
