@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { useRouter } from 'vue-router';
+//import { useRouter } from 'vue-router';
 import type { FieldDictionary } from '../classes/WheelOfLife'
 import ApexCharts from 'apexcharts'
 import LifeField from '../classes/LifeField'
 import wheel from '../data/wheel'
 
 const chartEl = ref<HTMLElement | null>(null);
-const router = useRouter();
-
+//const router = useRouter();
 
 const dictionary: FieldDictionary = wheel.getFields();
 const fields: LifeField[] = Object.values(dictionary); 
@@ -18,7 +17,8 @@ const values: number[] = fields.map((field) =>  field.getScore()?.getValue() ?? 
 onMounted( () => {
     if (wheel.isEmpty()) {
         wheel.reset();
-        router.push('/Wheel-Of-Life/');
+        location.reload();
+        //router.push('/Wheel-Of-Life/');
     }
 
     const options = {
